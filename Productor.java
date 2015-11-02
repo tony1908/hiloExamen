@@ -14,6 +14,11 @@ public class Productor extends Thread {
     public void run() {
         super.run();
         while (true){
+            try {
+                sleep((int)(Math.random()*5000));
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            }
             colaCircular.insertar(name ,(int)(Math.random()*10));
         }
     }

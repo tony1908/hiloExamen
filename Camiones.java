@@ -14,6 +14,11 @@ public class Camiones extends Thread {
     public void run() {
         super.run();
         while (true) {
+            try {
+                sleep(3000);
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            }
             colaCircular.borrar(nombre);
         }
     }
