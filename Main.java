@@ -1,31 +1,27 @@
 public class Main {
     public static void main(String[] args) {
 
-        //Productos por dia
-        //int productosDia = 20;
-        int productosDia;
-        productosDia = Teclado.entero("Productos por dia: ");
-
-        //Tamaño de la cola
-        //int tamañoCola = 10;
-        int tamañoCola;
-        tamañoCola = Teclado.entero("Tamaño de la cola: ");
-
-        //Capacidad camiones
-        //int capCamiones = 30;
         int capCamiones;
-        capCamiones = Teclado.entero("Capacidad de cada camion: ");
+        int productosDia;
+        int tamanoCola;
+        capCamiones = (Teclado.entero("Capacidad de cada camion: ") * 2);
 
-        //Creamos una cola
-        ColaCircular colaCircular = new ColaCircular(tamañoCola);
+        do {
+            productosDia = Teclado.entero("Productos por dia: ");
+        }while (!(productosDia >= capCamiones));
 
-        //Creamos a los productoes (deben de ser 4)
+        tamanoCola = Teclado.entero("Tamanio de la cola: ");
+
+
+        ColaCircular colaCircular = new ColaCircular(tamanoCola, productosDia, capCamiones);
+
+
         Productor productorUno = new Productor("A", colaCircular);
         Productor productorDos = new Productor("B", colaCircular);
         Productor productorTres = new Productor("C", colaCircular);
         Productor productorCuatro = new Productor("D", colaCircular);
 
-        //Creamos a los dos camiones (seran 2)
+
         Camiones camionUno = new Camiones("C1", colaCircular);
         Camiones camionDos = new Camiones("C2", colaCircular);
 
