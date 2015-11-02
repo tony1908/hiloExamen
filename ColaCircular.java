@@ -36,7 +36,7 @@ public class ColaCircular {
     }
 
     public synchronized int borrar(String nombre) {
-         while (H == -1){
+         while (validaVacio()){
             try {
                 wait();
             } catch (InterruptedException e) {

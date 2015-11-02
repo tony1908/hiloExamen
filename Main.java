@@ -3,8 +3,6 @@ public class Main {
 
         //Creamos una cola
         ColaCircular colaCircular = new ColaCircular(15);
-        ColaCircular colaCircular2 = new ColaCircular(15);
-        ColaCircular colaCircular3 = new ColaCircular(15);
 
         //Creamos a los productoes (deben de ser 4)
         Productor productorUno = new Productor("A", colaCircular);
@@ -13,8 +11,8 @@ public class Main {
         Productor productorCuatro = new Productor("D", colaCircular);
 
         //Creamos a los dos camiones (seran 2)
-        Camiones camionUno = new Camiones("C1", colaCircular, colaCircular2);
-        Camiones camionDos = new Camiones("C2", colaCircular, colaCircular3);
+        Camiones camionUno = new Camiones("C1", colaCircular);
+        Camiones camionDos = new Camiones("C2", colaCircular);
 
         productorUno.start();
         productorDos.start();
