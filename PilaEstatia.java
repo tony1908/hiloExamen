@@ -1,4 +1,4 @@
-class PilaEstatica {
+class PilaEstatica { //f
 
     private int[] pila;
     private static int tope;
