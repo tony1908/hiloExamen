@@ -18,16 +18,31 @@ public class ColaCircular {
         return !((H == 0 && T == cola.length - 1) || (T + 1 == H));//regresa un "true" si hay una casilla disponible
     }
 
-    public void insertar(String name, int num) {
+    public synchronized void insertar(String name, int num) {
+        while (T == cola.length - 1){
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         if (H == -1)
             H = 0;
         else if (T == cola.length - 1)
             T = -1;
         T++;
         cola[T] = num;
+        System.out.println("Se inserto "+name+ " numero "+num);
     }
 
-    public int borrar(String nombre) {
+    public synchronized int borrar(String nombre) {
+         while (H == -1){
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         int aux = cola[H];
         if (H == T)
             H = T = -1;
@@ -35,7 +50,9 @@ public class ColaCircular {
             H = 0;
         else
             H++;
+        System.out.println("adios");
         return aux;
+
     }
 
     public void listar() {
